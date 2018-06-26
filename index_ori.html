@@ -1,0 +1,49 @@
+﻿
+<!DOCTYPE html>
+<html>
+	<head><!-- Copyright 2011 Jeremy Karlsson info@enji.se -->
+		<title>Made by enji</title>
+		<meta charset="utf-8" />
+		<script src="js/script.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="piano">
+		<div class="panel">
+			<div class="screen"><h2 id="voice">Ballad Grand Piano</h2><span onclick="loadVoice(2, this.innerHTML)">Ballad Grand Piano</span><br /><span onclick="loadVoice(1, this.innerHTML)">Panflute</span></div>
+		</div>
+		<div class="keySholder">
+			<div id="keyCS" class="keyS" onmousedown="playSound('CS')">C#</div>
+			<div id="keyDS" class="keyS" onmousedown="playSound('DS')">D#</div>
+			<div id="keyFS" class="keyS" onmousedown="playSound('FS')">F#</div>
+			<div id="keyGS" class="keyS" onmousedown="playSound('GS')">G#</div>
+			<div id="keyAS" class="keyS" onmousedown="playSound('AS')">A#</div>
+			<div id="keyCS1" class="keyS" onmousedown="playSound('CS1')">C#</div>
+			<div id="keyDS1" class="keyS" onmousedown="playSound('DS1')">D#</div>
+			<div id="keyFS1" class="keyS" onmousedown="playSound('FS1')">F#</div>
+			<div id="keyGS1" class="keyS" onmousedown="playSound('GS1')">G#</div>
+			<div id="keyAS1" class="keyS" onmousedown="playSound('AS1')">A#</div>
+		</div>
+		<div class="keyHolder">
+			<div id="keyC" class="key" onmousedown="playSound('C')">C</div>
+			<div id="keyD" class="key" onmousedown="playSound('D')">D</div>
+			<div id="keyE" class="key" onmousedown="playSound('E')">E</div>
+			<div id="keyF" class="key" onmousedown="playSound('F')">F</div>
+			<div id="keyG" class="key" onmousedown="playSound('G')">G</div>
+			<div id="keyA" class="key" onmousedown="playSound('A')">A</div>
+			<div id="keyB" class="key" onmousedown="playSound('B')">B</div>
+			<div id="keyC1" class="key" onmousedown="playSound('C1')">C</div>
+			<div id="keyD1" class="key" onmousedown="playSound('D1')">D</div>
+			<div id="keyE1" class="key" onmousedown="playSound('E1')">E</div>
+			<div id="keyF1" class="key" onmousedown="playSound('F1')">F</div>
+			<div id="keyG1" class="key" onmousedown="playSound('G1')">G</div>
+			<div id="keyA1" class="key" onmousedown="playSound('A1')">A</div>
+			<div id="keyB1" class="key" onmousedown="playSound('B1')">B</div>
+			<div id="keyC2" class="key" onmousedown="playSound('C2')">C</div>
+		</div>
+		<div id="audios"></div>
+		</div>
+		
+		<footer>Piano created by Jeremy Karlsson | Mail: enjikaka@gmail.com Twitter: <a href="http://twitter.com/enjikaka">http://twitter.com/enjikaka</a></footer>
+	</body><!-- Copyright 2011 Jeremy Karlsson info@enji.se -->
+</html>

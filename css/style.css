@@ -1,0 +1,176 @@
+/* -------------------------------------------
+	Created by Jeremy Karlsson
+	Copyright 2011
+	Mail: info@enji.se 
+--------------------------------------------*/
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: Calibri, Arial;
+}
+
+body {
+	background: #333;
+}
+
+footer {
+	text-align: center;
+	font-size: 12px;
+	color: #EEE;
+}
+
+footer a {
+	text-decoration: none;
+	color: #AAA;
+}
+
+footer a:hover {
+	text-decoration: none;
+	color: #EEE;
+	border-bottom: 1px dotted #CCC;
+}
+
+.piano {
+	width: 600px;
+	height: 515px;
+	border: 0;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	margin: 15px auto;
+	overflow: hidden;
+}
+
+.keyHolder {
+	width: 100%;
+	position: relative;
+	height: 50px;
+	top: -115px;
+}
+
+.key {
+	background: #EEE;
+	height: 100px;
+	width: 40px;
+	box-shadow: inset 0 0 2px rgba(0,0,0,0.8);
+	line-height: 340px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #AAA;
+	display:table-cell;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.key:hover {
+	box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+	color: #888;
+	cursor: pointer;
+}
+
+.key:active {
+	box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
+	color: #555;
+}
+
+.keyActive {
+	background: #EEE;
+	height: 100px;
+	width: 40px;
+	line-height: 340px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	display:table-cell;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
+	color: #555;
+}
+
+.keySholder {
+	width: 100%;
+	position: relative;
+	left: 0;
+}
+
+.keyS {
+	background: #222;
+	color: #AAA;
+	box-shadow: 0 0 2px rgba(0,0,0,0.8);
+	width: 30px;
+	height: 115px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	line-height: 175px;
+	text-align: center;
+	position: relative;
+	z-index: 99;
+	display: inline-block;
+}
+
+.keyS:hover {
+	box-shadow: 0 0 3px rgba(0,0,0,0.8);
+	color: #CCC;
+	cursor: pointer;
+}
+
+.keyS:active {
+	box-shadow: 0 3px 3px rgba(0,0,0,0.8), inset 0 -1px 5px rgba(255,255,255,0.6);
+	color: #EEE;
+}
+
+.keySActive {
+	background: #222;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.8), inset 0 -1px 5px rgba(255,255,255,0.6);
+	color: #EEE;
+	width: 30px;
+	height: 115px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	line-height: 175px;
+	text-align: center;
+	position: relative;
+	z-index: 99;
+	display: inline-block;
+}
+
+.panel {
+	background: -webkit-linear-gradient(#CCC,#999);
+	padding: 50px;
+}
+
+.screen {
+	background: #a0f0d7;
+	padding: 20px;
+	box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+	border-radius: 15px;
+	width: 450px;
+	height: 150px;
+	border: 2px solid #333;
+	margin: 0 auto;
+}
+
+.screen h2 {
+	font-size: 25px;
+	color: #333;
+	text-shadow: -1px -1px 0 #AAA;
+	letter-spacing: 1px;
+}
+
+/* Sharp Keys Positions */
+
+#keyCS {margin-left: 25px;}
+#keyDS, #keyGS, #keyAS, #keyDS1, #keyGS1, #keyAS1 {margin-left: 5px;}
+#keyFS {margin-left: 50px;}
+#keyCS1 {margin-left: 45px;}
+#keyFS1 {margin-left: 50px;}
+
+.center {width: 100%;text-align:center;}
+
+/* -------------------------------------------
+	Created by Jeremy Karlsson
+	Copyright 2011
+	Mail: info@enji.se 
+--------------------------------------------*/

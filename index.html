@@ -1,0 +1,339 @@
+﻿
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<script type="text/javascript" language="javascript">
+		<!--
+			// JukeBox
+			var musicList=[];
+			// Sound Of Music
+			musicList[0]="Tempo:1/C:750/D:250/E:750/C:250/E:500/C:500/E:1000/D:750/E:250/F:250/F:250/E:250/D:250/F:2000/" +
+						 "E:750/F:250/G:750/E:250/G:500/E:500/G:1000/F:750/G:250/A:250/A:250/G:250/F:250/A:2000/" + 
+						 "G:750/C:250/D:250/E:250/F:250/G:250/A:2000/A:750/D:250/E:250/F:250/G:250/A:250/B:2000/" +
+						 "B:750/E:250/F:250/G:250/A:250/B:250/C1:1500/C1:250/B:250/A:500/F:500/B:500/G:500/C1:250";
+			// Over The Rainbow
+			musicList[1]="Tempo:1.4/F:1000/F1:1000/E1:500/C1:250/D1:250/E1:500/F1:500/F:1000/D1:1000/C1:2000/" +
+						 "D:1000/AS:1000/A:500/F:250/G:250/A:500/AS:500/G:500/E:250/F:250/G:500/A:500/F:1750" +
+						 "C1:250/A:250/C1:250/A:250/C1:250/A:250/C1:250/A:250/C1:250/AS:250/C1:250/AS:250/C1:250/AS:250/C1:250/AS:250/C1:250/" +
+						 "A:250/C1:250/A:250/C1:250/AS:250/C1:250/D1:250/E1:250/F1:2000";
+			// Sting
+			musicList[2]="Tempo:0.9/D:250/DS:250/E:250/C1:500/E:250/C1:500/E:250/C1:1750/C1:250/D1:250/DS1:250/E1:250/C1:250/D1:250/E1:500/B:250/D1:500/C1:1500/" +
+						 "D:250/DS:250/E:250/C1:500/E:250/C1:500/E:250/C1:1750/A:250/G:250/FS:250/A:250/C1:250/E1:500/D1:250/C1:250/A:250/D1:1500/" + 
+						 "D:250/DS:250/E:250/C1:500/E:250/C1:500/E:250/C1:1750/C1:250/D1:250/DS1:250/E1:250/C1:250/D1:250/E1:500/B:250/D1:500/C1:1500/" + 
+						 "C1:250/D1:250/E1:250/C1:250/D1:250/E1:500/C1:250/D1:250/C1:250/E1:250/C1:250/D1:250/E1:500/C1:250/D1:250/C1:250/E1:250/C1:250/D1:250/E1:500/B:250/D1:500/C1:1500/" +
+						 "E:250/F:250/FS:250/G:500/A:250/G:500/E:250/F:250/FS:250/G:500/A:250/G:500/E1:250/C1:250/G:250/A:250/B:250/C1:250/D1:250/E1:250/D1:250/C1:250/D1:250/E1:500/D1:500/D1:250/" +
+						 "E:250/F:250/FS:250/G:500/A:250/G:500/E:250/F:250/FS:250/G:500/A:250/G:500/E1:250/C1:250/G:250/FS:250/A:250/C1:250/E1:500/D1:250/C1:250/A:250/D1:1250/" +
+						 "E:250/F:250/FS:250/G:500/A:250/G:500/E:250/F:250/FS:250/G:500/A:250/G:500/E1:250/C1:250/G:250/A:250/B:250/C1:250/D1:250/E1:250/D1:250/C1:250/D1:250/E1:500/D1:500/D1:250/" +
+						 "C1:250/D1:250/C1:250/E1:250/C1:250/D1:250/E1:500/C1:250/D1:250/C1:250/E1:250/C1:250/D1:250/E1:500/C1:250/D1:250/C1:250/E1:250/C1:250/D1:250/E1:500/B:250/D1:500/C1:1500";
+			// Nazarino OST
+			musicList[3]="Tempo:1.7/ :250/C:250/F:250/G:250/A:1000/G:250/A:250/AS:250/E:250/F:1250/C:250/F:250/A:250/C1:1000/D1:250/E1:250/D1:250/A:250/G:1750/" +
+						 "D1:125/C1:125/D1:250/C1:125/AS:625/E1:250/F1:125/G1:375/E1:250/C1:1250/A:250/G:250/F:250/C1:1000/G:250/A:250/AS:250/E:250/F:1500";
+			// My Heart Will Go On
+			musicList[4]="Tempo:1.1/F:250/G:500/A:1250/G:250/F:250/G:250/C1:1250/AS:250/A:250/F:500/D:1000/C:2000/" + 
+						 "F:250/G:500/A:1250/AS:125/A:125/G:125/F:125/G:250/C1:1250/A:250/C1:250/D1:1000/C1:1000/G:2000/" +
+						 "F:750/F:250/F:500/F:500/E:500/F:1000/F:500/E:500/F:1000/G:500/A:1000/G:1000/" +
+						 "F:750/F:250/F:500/F:500/E:500/F:1000/F:250/C:250/C:3000/ :1000/" +
+						 "F:750/F:250/F:500/F:500/E:500/F:1000/F:500/E:500/F:1000/G:500/A:750/AS:125/A:125/G:1000/" +
+						 "F:750/F:250/F:500/F:500/E:500/F:1000/F:250/C:250/C:3000/ :1000/" +
+						 "F:2000/G:1500/C:500/C1:1000/AS:500/A:500/G:1000/A:750/AS:250/A:1000/G:750/F:250/E:500/F:1000/E:250/D:250/D:2000/C:1000/ :1000/" +
+						 "F:2000/G:1500/C:500/C1:1000/AS:500/A:250/G:1250/A:500/AS:500/A:1000/G:500/F:500/E:500/F:1000/E:500/E:500/F:1000/G:500/A:1000/G:1000/F:2000";
+		    // Load sounds		
+			var pianoSounds=[];
+			var octaveStr1="C  CS D  DS E  F  FS G  GS A  AS B  C1 CS1D1 DS1E1 F1 FS1G1 GS1A1 AS1B1 ";
+			var arrExt=[".wav",".mp3",".mp3"];
+			for (var i=0;i<(octaveStr1.length*3);i+=3)
+			{
+				pianoSounds[i/3]=[];
+				for (var j=0;j<3;j++)
+				{
+					var soundPath="sounds/"+j+"/"+octaveStr1[i]+octaveStr1[i+1].replace(" ","")+octaveStr1[i+2].replace(" ","")+arrExt[j];	
+					pianoSounds[i/3][j]=new Audio(soundPath);
+					pianoSounds[i/3][j].volume=1;
+				}
+			}
+			
+			// Sound Play
+			function playSound(soundID)
+			{
+				var pitch=octaveStr1.indexOf(soundID)/3;
+				if (soundID==' ' || pitch < 0)
+					return;
+				document.getElementById('aaa').value=soundID;
+				var BBB=document.getElementById('SoundClass').value;
+				
+				pianoSounds[pitch][BBB].currentTime = 0;
+				pianoSounds[pitch][BBB].play();			
+			}
+
+			function init()
+			{
+				for (var i=0;i < octaveStr1.length;i++)
+				{
+					var btn=document.getElementById('btn'+octaveStr1[i]);
+					btnC.addEventListener('touchmove', function() {
+						playSound(octaveStr1[i]);
+					}, false);
+				}
+				//var btnE=document.getElementById('btnE');
+				//btnE.addEventListener('touchmove', ev_touchmoveE, false);
+				//var btnG=document.getElementById('btnG');
+				//btnG.addEventListener('touchmove', ev_touchmoveG, false);
+
+				//window.addEventListener('touchstart', touchmove, false);
+			}
+			
+			function ev_touchmoveG(ev) {
+				document.getElementById('aaa').value="G";
+				playSound('G');
+			}
+			
+			var scoreFrames;
+			var timer;
+			var frameId;
+			function playSelectedMusic()
+			{
+				var musicId=parseInt(document.getElementById('musicSelection').value);
+				scoreFrames=musicList[musicId].split('/');
+				frameId=0;
+				scoreScan();	
+			}
+			
+			function scoreScan()
+			{
+				clearInterval(timer);
+				if (frameId>=scoreFrames.length)
+				{
+					document.getElementById('aaa').value="Key";
+					return;
+				}
+				var curFrm=scoreFrames[frameId++].split(":");
+				var tempo=parseFloat(document.getElementById('tempo').value);
+				if (curFrm[0]=='Tempo')
+				{
+					document.getElementById('tempo').value=curFrm[1];
+					showValue(curFrm[1]);
+				}
+				
+				timer=setInterval(scoreScan,curFrm[1]*tempo);	
+				playSound(curFrm[0]);
+			}
+
+			function showValue(newValue)
+			{
+				document.getElementById("range").innerHTML=newValue.substring(0,3);
+			}
+		-->
+		</script>
+		<style>
+			.title {
+				font-size: 30px;
+				text-shadow: -2px -2px 0 #AAA;
+				color: #333;
+			}
+			.border {
+				width: 600px;
+				height: 400px;
+				background: -webkit-linear-gradient(#BBB,#EEE);				
+				border: 0;
+				border-radius: 10px;
+				box-shadow: 0 3px 5px #0000FF;
+				margin: 15px auto;
+				overflow: hidden;
+			}
+			.subtitle {
+				font-size: 20px;
+				text-shadow: 2px 2px 2px #AA3000;
+				color: #444000;
+			}
+			.content {
+				font-size: 16px;
+				text-shadow: 1px 1px 1px #AA5000;
+				color: #555000;
+			}
+			.button {
+				width: 100px;
+				height: 30px;
+				background: -webkit-linear-gradient(#BBBB00,#EEEE00);				
+				border-radius: 6px;
+				box-shadow: 0 3px 5px #0000FF;
+				margin: 15px auto;
+				overflow: hidden;
+			}
+			.pianoButton {
+				width: 35px;
+				height: 90px;
+				background: -webkit-linear-gradient(#FFFFFF,#EEEE77);				
+				border-radius: 5px;
+				box-shadow: 0 1px 2px #0000FF;
+				overflow: hidden;
+				font-size: 16px;
+				text-shadow: 1px 1px 1px #AA5000;
+				color: #555000;
+			}
+			.pianoSharpButton {
+				width: 35px;
+				height: 80px;
+				background: -webkit-linear-gradient(#FFFFFF,#000000);				
+				border-radius: 5px;
+				box-shadow: 0 1px 2px #0000FF;
+				color: #555000;
+			}
+			.currentKey {
+				width: 35px;
+				height: 30px;
+				background: -webkit-linear-gradient(#00BBBB,#00EEEE);				
+				border-radius: 6px;
+				box-shadow: 0 3px 5px #0000FF;
+				margin: 15px auto;
+				overflow: hidden;
+				font-size: 16px;
+				text-shadow: 1px 1px 1px #AA5000;
+				color: #555000;
+			}
+			.leftMenu {
+			font:bold 14pt Courier;
+			color:#AA5555;
+			text-shadow:1px 1px 3px #000;
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+		<script type="text/javascript">var kauli_yad_count = typeof(kauli_yad_count) == 'undefined' ? 1 : kauli_yad_count + 1;(function(d){ d.write('<span id="kauli_yad_' + kauli_yad_count + '" style="width:728px; height:90px; display:inline-block"><!--24971--><' + '/span>'); var s = d.createElement('script'); var h = d.getElementsByTagName('head')[0]; s.defer = 'defer'; s.async = 'async'; s.src = 'http://js.kau.li/yad.js'; h.insertBefore(s, h.firstChild);})(document);</script>	
+		</center>
+		<div class="title" align="center">Sound Of Music(Simple Piano)</div>
+		<table class="border" align="center">
+			<tr height="50">
+				<td valign="bottom">
+					&nbsp;&nbsp;<b class="subtitle">Select Sound</b>
+					<select id="SoundClass" class="content">
+						<option value=1>Pan Floot</option>
+						<option value=2>Long Piano Sound</option>
+						<option value=0>Short Piano Sound</option>
+					</select>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<b class="subtitle">Tempo</b>
+					<input id="tempo" type="range" min="0" max="3" step="0.1" class="content" value=1 onchange="showValue(this.value)"/>
+					<span id="range" class="pianoButton">1</span>
+				</td>
+			</tr>
+			<tr height="35">
+				<td  valign="bottom">
+					&nbsp;&nbsp;<b class="subtitle">JukeBox</b>
+					<select id="musicSelection" class="content">
+						<option value=0>Sound Of Music</option>
+						<option value=1>Over The Rainbow</option>
+						<option value=2>Sting ost</option>
+						<option value=3>Nazarino ost</option>
+						<option value=4>My Heart Will Go On</option>
+					</select>
+					<button class="button" onclick="playSelectedMusic();">Play</button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input class="currentKey" id="aaa" value="Key" />
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					&nbsp;
+					<button id="btnCS" class="pianoSharpButton" onclick="playSound('CS ');"></button>
+					<button id="btnDS" class="pianoSharpButton" onclick="playSound('DS ');"></button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button id="btnFS" class="pianoSharpButton" onclick="playSound('FS ');"></button>
+					<button id="btnGS" class="pianoSharpButton" onclick="playSound('GS ');"></button>
+					<button id="btnAS" class="pianoSharpButton" onclick="playSound('AS ');"></button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button id="btnCS1" class="pianoSharpButton" onclick="playSound('CS1');"></button>
+					<button id="btnDS1" class="pianoSharpButton" onclick="playSound('DS1');"></button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button id="btnFS1" class="pianoSharpButton" onclick="playSound('FS1');"></button>
+					<button id="btnGS1" class="pianoSharpButton" onclick="playSound('GS1');"></button>
+					<button id="btnAS1" class="pianoSharpButton" onclick="playSound('AS1');"></button>
+					<br/>
+					<button id="btnC" class="pianoButton" onclick="playSound('C  ');">Do</button>
+					<button id="btnD" class="pianoButton" onclick="playSound('D  ');">Re</button>
+					<button id="btnE" class="pianoButton" onclick="playSound('E  ');">Mi</button>
+					<button id="btnF" class="pianoButton" onclick="playSound('F  ');">Fa</button>
+					<button id="btnG" class="pianoButton" onclick="playSound('G  ');">Sol</button>
+					<button id="btnA" class="pianoButton" onclick="playSound('A  ');">La</button>
+					<button id="btnB" class="pianoButton" onclick="playSound('B  ');">Si</button>
+					<button id="btnC1" class="pianoButton" onclick="playSound('C1 ');">Do</button>
+					<button id="btnD1" class="pianoButton" onclick="playSound('D1 ');">Re</button>
+					<button id="btnE1" class="pianoButton" onclick="playSound('E1 ');">Mi</button>
+					<button id="btnF1" class="pianoButton" onclick="playSound('F1 ');">Fa</button>
+					<button id="btnG1" class="pianoButton" onclick="playSound('G1 ');">Sol</button>
+					<button id="btnA1" class="pianoButton" onclick="playSound('A1 ');">La</button>
+					<button id="btnB1" class="pianoButton" onclick="playSound('B1 ');">Si</button>
+				</td>
+			</tr>
+			<tr valign="bottom">
+				<td align="right"><a href="/1_9_Games.html" class="leftMenu" target="_blank">Other Apps</a></td>
+			</tr>
+		</table>
+		<script language="javascript">
+		<!--
+			document.onkeydown = function(e) {
+				var keyCode = ('which' in e) ? e.which : e.keyCode;
+				//alert ("The Unicode key code is: " + keyCode);
+				if (keyCode == 90) {playSound('C  ');}//document.getElementById('keyC').className = "keyActive";}
+				if (keyCode == 88) {playSound('D  ');}//document.getElementById('keyD').className = "keyActive";}
+				if (keyCode == 67) {playSound('E  ');}//document.getElementById('keyE').className = "keyActive";}
+				if (keyCode == 86) {playSound('F  ');}//document.getElementById('keyF').className = "keyActive";}
+				if (keyCode == 66) {playSound('G  ');}//document.getElementById('keyG').className = "keyActive";}
+				if (keyCode == 78) {playSound('A  ');}//document.getElementById('keyA').className = "keyActive";}
+				if (keyCode == 77) {playSound('B  ');}//document.getElementById('keyB').className = "keyActive";}
+				if (keyCode == 81) {playSound('C1 ');}//document.getElementById('keyC1').className = "keyActive";}
+				if (keyCode == 87) {playSound('D1 ');}//document.getElementById('keyD1').className = "keyActive";}
+				if (keyCode == 69) {playSound('E1 ');}//document.getElementById('keyE1').className = "keyActive";}
+				if (keyCode == 82) {playSound('F1 ');}//document.getElementById('keyF1').className = "keyActive";}
+				if (keyCode == 84) {playSound('G1 ');}//document.getElementById('keyG1').className = "keyActive";}
+				if (keyCode == 89) {playSound('A1 ');}//document.getElementById('keyA1').className = "keyActive";}
+				if (keyCode == 85) {playSound('B1 ');}//document.getElementById('keyB1').className = "keyActive";}
+				if (keyCode == 73) {playSound('C2 ');}//document.getElementById('keyC2').className = "keyActive";}
+				if (keyCode == 83) {playSound('CS ');}//document.getElementById('keyCS').className = "keySActive";}
+				if (keyCode == 68) {playSound('DS ');}//document.getElementById('keyDS').className = "keySActive";}
+				if (keyCode == 71) {playSound('FS ');}//document.getElementById('keyFS').className = "keySActive";}
+				if (keyCode == 72) {playSound('GS ');}//document.getElementById('keyGS').className = "keySActive";}
+				if (keyCode == 74) {playSound('AS ');}//document.getElementById('keyAS').className = "keySActive";}
+				if (keyCode == 50) {playSound('CS1');}//document.getElementById('keyCS1').className = "keySActive";}
+				if (keyCode == 51) {playSound('DS1');}//document.getElementById('keyDS1').className = "keySActive";}
+				if (keyCode == 53) {playSound('FS1');}//document.getElementById('keyFS1').className = "keySActive";}
+				if (keyCode == 54) {playSound('GS1');}//document.getElementById('keyGS1').className = "keySActive";}
+				if (keyCode == 55) {playSound('AS1');}//document.getElementById('keyAS1').className = "keySActive";}
+			}
+
+			//document.onkeyup = function(e) {
+				//var keyCode = ('which' in e) ? e.which : e.keyCode;
+				//if (keyCode == 90) {document.getElementById('keyC').className = "key";}
+				//if (keyCode == 88) {document.getElementById('keyD').className = "key";}
+				//if (keyCode == 67) {document.getElementById('keyE').className = "key";}
+				//if (keyCode == 86) {document.getElementById('keyF').className = "key";}
+				//if (keyCode == 66) {document.getElementById('keyG').className = "key";}
+				//if (keyCode == 78) {document.getElementById('keyA').className = "key";}
+				//if (keyCode == 77) {document.getElementById('keyB').className = "key";}
+				//if (keyCode == 81) {document.getElementById('keyC1').className = "key";}
+				//if (keyCode == 87) {document.getElementById('keyD1').className = "key";}
+				//if (keyCode == 69) {document.getElementById('keyE1').className = "key";}
+				//if (keyCode == 82) {document.getElementById('keyF1').className = "key";}
+				//if (keyCode == 84) {document.getElementById('keyG1').className = "key";}
+				//if (keyCode == 89) {document.getElementById('keyA1').className = "key";}
+				//if (keyCode == 85) {document.getElementById('keyB1').className = "key";}
+				//if (keyCode == 73) {document.getElementById('keyC2').className = "key";}
+				//if (keyCode == 83) {document.getElementById('keyCS').className = "keyS";}
+				//if (keyCode == 68) {document.getElementById('keyDS').className = "keyS";}
+				//if (keyCode == 71) {document.getElementById('keyFS').className = "keyS";}
+				//if (keyCode == 72) {document.getElementById('keyGS').className = "keyS";}
+				//if (keyCode == 74) {document.getElementById('keyAS').className = "keyS";}
+				//if (keyCode == 50) {document.getElementById('keyCS1').className = "keyS";}
+				//if (keyCode == 51) {document.getElementById('keyDS1').className = "keyS";}
+				//if (keyCode == 53) {document.getElementById('keyFS1').className = "keyS";}
+				//if (keyCode == 54) {document.getElementById('keyGS1').className = "keyS";}
+				//if (keyCode == 55) {document.getElementById('keyAS1').className = "keyS";}
+			//}
+			init();
+		-->
+		</script>
+	</body>
+</html>
